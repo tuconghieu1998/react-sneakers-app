@@ -62,7 +62,8 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       setLoginLoading(false);
-      setError(error.response.data.errors[0]);
+      console.log(error);
+      //setError(error.response.data.errors[0]);
     } finally {
       setLoginLoading(false);
     }
