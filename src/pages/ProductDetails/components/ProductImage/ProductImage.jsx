@@ -5,6 +5,7 @@ import Tilt from "react-parallax-tilt";
 import React from "react";
 
 export const ProductImage = ({ selectedProduct }) => {
+  console.log("ProductImage", selectedProduct);
   return (
     <Tilt
       tiltEnable={false}
