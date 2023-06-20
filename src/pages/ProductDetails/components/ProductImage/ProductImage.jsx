@@ -14,7 +14,7 @@ export const ProductImage = ({ selectedProduct }) => {
       className="product-details-image"
     >
       {" "}
-      <img src={selectedProduct?.img} alt={selectedProduct.name}/>
+      <img src={selectedProduct?.img} alt={selectedProduct?.name}/>
     </Tilt>
   );
 };

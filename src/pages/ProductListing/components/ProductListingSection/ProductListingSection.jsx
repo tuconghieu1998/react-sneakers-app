@@ -99,8 +99,8 @@ export const ProductListingSection = () => {
 
                   <p>Gender: {category_name}</p>
                   <div className="info">
-                    {!is_stock && <p className="out-of-stock">Out of stock</p>}
-                    {trending && <p className="trending">Trending</p>}
+                    {!is_stock == 1 && <p className="out-of-stock">Out of stock</p>}
+                    {trending == 1 && <p className="trending">Trending</p>}
                   </div>
                 </div>
 

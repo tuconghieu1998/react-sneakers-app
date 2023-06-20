@@ -47,12 +47,12 @@ export const ProductDescription = ({ selectedProduct }) => {
       </p>
 
       <div className="tags">
-        {!selectedProduct?.is_stock && (
+        {!(selectedProduct?.is_stock == 1) && (
           <span className="out-of-stock">
             {selectedProduct?.is_stock ? "In Stock" : "Out of stock"}
           </span>
         )}
-        {selectedProduct?.trending && (
+        {selectedProduct?.trending == 1 && (
           <span className="trending">
             {selectedProduct?.trending ? "Trending" : ""}
           </span>
