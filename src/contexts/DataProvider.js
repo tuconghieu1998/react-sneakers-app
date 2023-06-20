@@ -46,9 +46,15 @@ export function DataProvider({ children }) {
     try {
       const response = await getAllCategories();
       if (response.request.status === 200) {
+        let categories = response.data.categories;
+        // convert data
+        for(let category of categories) {
+          category._id = category.id;
+          category.categoryName = category.name;
+        }
         dispatch({
           type: "GET_ALL_CATEGORIES",
-          payload: response.data.categories,
+          payload: categories,
         });
       }
     } catch (error) {

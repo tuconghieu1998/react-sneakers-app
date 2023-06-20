@@ -1,5 +1,11 @@
 import axios from "axios";
 
-export const getAllCategories = async () => await axios.get("/api/categories");
+console.log("url", process.env.PORT)
 
-export const getAllProducts = async () => await axios.get("/api/products");
+const instance = axios.create({
+  baseURL: "http://127.0.0.1:3000/",
+});
+
+export const getAllCategories = async () => await instance.get("/api/categories");
+
+export const getAllProducts = async () => await instance.get("/api/products");

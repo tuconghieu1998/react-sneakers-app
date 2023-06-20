@@ -10,7 +10,7 @@ import { UserProvider } from "./contexts/UserDataProvider";
 import { AddressProvider } from "./contexts/AddressProvider";
 
 // Call make Server
-makeServer();
+//makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
