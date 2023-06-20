@@ -1,5 +1,5 @@
-import axios from "axios";
-export const loginService = async (email, password) => {
-  
-  return await axios.post("/api/auth/login", { email, password });
+import { instanceAxios } from '../services.js';
+
+export const loginService = async (email, password) => {  
+  return await instanceAxios.post("/api/auth/login", { username: email, password });
 };

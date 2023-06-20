@@ -83,7 +83,7 @@ export const Login = () => {
             <input value="Login" type="submit" />
             <button
               onClick={(e) => {
-                loginHandler(e, "chiragtaluja@apple.com", "chiragtaluja");
+                loginHandler(e, "admin@local.com", "admin");
               }}
             >
               Login with Test Credentials

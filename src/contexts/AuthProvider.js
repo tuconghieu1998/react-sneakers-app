@@ -37,11 +37,11 @@ export const AuthProvider = ({ children }) => {
 
       if (response.status === 200) {
         setLoginLoading(false);
-        toast.success(`Welcome back, ${response.data.foundUser.firstName}!`);
-        const encodedToken = response.data.encodedToken;
-        const firstName = response.data.foundUser.firstName;
-        const lastName = response.data.foundUser.lastName;
-        const email = response.data.foundUser.email;
+        toast.success(`Welcome back, ${response.data.foundUser.first_name}!`);
+        const encodedToken = response.data.foundUser.token;
+        const firstName = response.data.foundUser.first_name;
+        const lastName = response.data.foundUser.last_name;
+        const email = response.data.foundUser.username;
 
         setAuth({
           token: encodedToken,
