@@ -41,13 +41,16 @@ export const Signup = () => {
         );
         if (response.status === 201) {
           setSignUpLoading(false);
+          console.log(response);
+          
+          const encodedToken = response.data.token;
+          const firstName = response.data.createdUser.first_name;
+          const lastName = response.data.createdUser.last_name;
+          const email = response.data.createdUser.username;
+
           toast.success(
-            `You've successfully signed up, ${response.data.createdUser.firstName}`
+            `You've successfully signed up, ${firstName}`
           );
-          const encodedToken = response.data.encodedToken;
-          const firstName = response.data.createdUser.firstName;
-          const lastName = response.data.createdUser.lastName;
-          const email = response.data.createdUser.email;
 
           setAuth({
             token: encodedToken,

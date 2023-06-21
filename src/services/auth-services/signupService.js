@@ -1,9 +1,9 @@
-import axios from "axios";
+import {instanceAxios} from "../services.js";
 
 export const signupService = async (email, password, firstName, lastName) =>
-  await axios.post("/api/auth/signup", {
-    email,
+  await instanceAxios.post("/api/auth/register", {
+    username: email,
     password,
-    firstName,
-    lastName,
+    first_name: firstName,
+    last_name: lastName,
   });
