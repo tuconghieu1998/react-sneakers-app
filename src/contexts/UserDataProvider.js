@@ -219,7 +219,7 @@ export function UserProvider({ children }) {
 
   const isProductInCart = (product) => {
     const found = userDataState.cartProducts.find(
-      (item) => item._id === product._id
+      (item) => item.product_id === product.id
     );
     return found ? true : false;
   };

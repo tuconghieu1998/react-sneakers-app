@@ -7,7 +7,7 @@ export const CartAmountSummary = ({ couponSelected }) => {
   const { userDataState, dispatch } = useUserData();
 
   const totalDiscountedPriceBeforeCoupon = userDataState.cartProducts?.reduce(
-    (acc, curr) => acc + curr.discounted_price * curr.qty,
+    (acc, curr) => acc + curr.discounted_price * curr.quantity,
     0
   );
 
@@ -24,7 +24,7 @@ export const CartAmountSummary = ({ couponSelected }) => {
   ).toFixed(2);
 
   const totalOriginalPrice = userDataState.cartProducts?.reduce(
-    (acc, curr) => acc + curr.original_price * curr.qty,
+    (acc, curr) => acc + curr.original_price * curr.quantity,
     0
   );
 
