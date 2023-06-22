@@ -37,7 +37,7 @@ export const CartListing = () => {
               >
                 -
               </button>
-              <span>{product.qty}</span>
+              <span>{product.quantity}</span>
               <button
                 disabled={cartLoading}
                 className="counter-btn"

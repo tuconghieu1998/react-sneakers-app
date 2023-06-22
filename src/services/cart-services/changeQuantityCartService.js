@@ -1,20 +1,17 @@
-import axios from "axios";
+import { instanceAxios, getHeaderAuth } from "../services.js";
 
 export const changeQuantityCartService = async (
   productId,
   encodedToken,
-  type
+  quantity
 ) => {
-  return await axios.post(
-    `/api/user/cart/${productId}`,
-
+  return await instanceAxios.put(
+    `/api/cart/${productId}/update`,
     {
-      action: {
-        type,
-      },
+      quantity
     },
     {
-      headers: { authorization: encodedToken },
+      headers: getHeaderAuth(encodedToken),
     }
   );
 };

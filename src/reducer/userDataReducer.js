@@ -4,6 +4,24 @@ export const userDataReducer = (state, action) => {
       return { ...state, cartProducts: [...action.payload] };
     }
 
+    case "REMOVE_FROM_CART": {
+      const productId = action.payload;
+      const index = state.cartProducts.findIndex((obj) => obj.id === productId);
+      if(index >= 0) {
+        state.cartProducts.splice(index, 1);
+      }
+      return {...state};
+    }
+
+    case "SET_QUANTITY_CART_PRODUCT": {
+      const product = action.payload;
+      const index = state.cartProducts.findIndex((obj) => obj.id === product.id);
+      if(index >= 0) {
+        state.cartProducts[index].quantity = product.quantity;
+      }
+      return {...state};
+    }
+
     case "SET_ADDRESS": {
       return { ...state, addressList: [...action.payload] };
     }

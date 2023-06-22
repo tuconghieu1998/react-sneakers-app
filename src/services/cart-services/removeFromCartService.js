@@ -1,7 +1,7 @@
-import axios from "axios";
+import { instanceAxios, getHeaderAuth } from "../services.js";
 
 export const removeFromCartService = async (productId, encodedToken) => {
-  return await axios.delete(`/api/user/cart/${productId}`, {
-    headers: { authorization: encodedToken },
+  return await instanceAxios.delete(`/api/cart/${productId}/remove`, {
+    headers: getHeaderAuth(encodedToken),
   });
 };

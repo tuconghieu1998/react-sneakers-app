@@ -101,12 +101,12 @@ export function makeServer({ environment = "development" } = {}) {
       this.get("/categories/:categoryId", getCategoryHandler.bind(this));
 
       // cart routes (private)
-      this.get("/user/cart", getCartItemsHandler.bind(this));
-      this.post("/user/cart", addItemToCartHandler.bind(this));
-      this.post("/user/cart/clearCart", clearCartHandler.bind(this));
-      this.post("/user/cart/:productId", updateCartItemHandler.bind(this));
+      this.get("/cart", getCartItemsHandler.bind(this));
+      this.post("/cart", addItemToCartHandler.bind(this));
+      this.post("/cart/clearCart", clearCartHandler.bind(this));
+      this.post("/cart/:productId", updateCartItemHandler.bind(this));
       this.delete(
-        "/user/cart/:productId",
+        "/cart/:productId",
         removeItemFromCartHandler.bind(this)
       );
 

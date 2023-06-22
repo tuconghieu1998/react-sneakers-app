@@ -43,8 +43,8 @@ export function UserProvider({ children }) {
           try {
             setCartLoading(true);
             setError("");
-            const response = await addToCartService(product, auth.token);
-            if (response.status === 201) {
+            const response = await addToCartService(product.id, auth.token);
+            if (response.status === 200) {
               setCartLoading(false);
               toast.success(`${product.name} added to cart successfully!`);
               dispatch({ type: "SET_CART", payload: response.data.cart });
@@ -93,11 +93,11 @@ export function UserProvider({ children }) {
     try {
       setCartLoading(true);
       setError("");
-      const response = await removeFromCartService(product._id, auth.token);
+      const response = await removeFromCartService(product.id, auth.token);
       if (response.status === 200) {
         setCartLoading(false);
         toast.success(`${product.name} successfully removed from the cart `);
-        dispatch({ type: "SET_CART", payload: response.data.cart });
+        dispatch({ type: "REMOVE_FROM_CART", payload: product.id });
       }
     } catch (error) {
       setCartLoading(false);
@@ -111,18 +111,18 @@ export function UserProvider({ children }) {
     try {
       setCartLoading(true);
       setError("");
-      if (type === "decrement" && product.qty === 1) {
-        const response = await removeFromCartService(product._id, auth.token);
+      if (type === "decrement" && product.quantity === 1) {
+        const response = await removeFromCartService(product.id, auth.token);
         if (response.status === 200) {
           setCartLoading(false);
           toast.success(`${product.name} succesfully removed from the cart`);
-          dispatch({ type: "SET_CART", payload: response.data.cart });
+          dispatch({ type: "REMOVE_FROM_CART", payload: product.id });
         }
       } else {
         const response = await changeQuantityCartService(
-          product._id,
+          product.id,
           auth.token,
-          type
+          product.quantity + (type === "decrement" ? -1 : 1)
         );
 
         if (response.status === 200) {
@@ -132,7 +132,7 @@ export function UserProvider({ children }) {
           } else {
             toast.success(`Added another ${product.name} to the cart!`);
           }
-          dispatch({ type: "SET_CART", payload: response.data.cart });
+          dispatch({ type: "SET_QUANTITY_CART_PRODUCT", payload: response.data.item});
         }
       }
     } catch (error) {

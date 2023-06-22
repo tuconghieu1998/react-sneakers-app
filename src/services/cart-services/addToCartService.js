@@ -1,11 +1,14 @@
-import axios from "axios";
+import { instanceAxios, getHeaderAuth } from "../services.js";
 
-export const addToCartService = async (product, encodedToken) => {
-  return await axios.post(
-    "/api/user/cart",
-    { product: { ...product } },
+export const addToCartService = async (productId, encodedToken) => {
+  return await instanceAxios.post(
+    "/api/cart",
+    { 
+      product_id: productId,
+      quantity: 1
+    },
     {
-      headers: { authorization: encodedToken },
+      headers: getHeaderAuth(encodedToken)
     }
   );
 };
