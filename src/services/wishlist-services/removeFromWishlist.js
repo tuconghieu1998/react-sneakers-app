@@ -1,7 +1,7 @@
-import axios from "axios";
+import { instanceAxios, getHeaderAuth } from "../services.js";
 
 export const removeFromWishlistService = async (productId, encodedToken) => {
-  return await axios.delete(`/api/user/wishlist/${productId}`, {
-    headers: { authorization: encodedToken },
+  return await instanceAxios.delete(`/api/wishlist/${productId}/remove`, {
+    headers: getHeaderAuth(encodedToken)
   });
 };

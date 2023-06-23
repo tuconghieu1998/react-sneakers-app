@@ -30,6 +30,15 @@ export const userDataReducer = (state, action) => {
       return { ...state, wishlistProducts: [...action.payload] };
     }
 
+    case "REMOVE_ITEM_FROM_WISHLIST": {
+      const itemId = action.payload;
+      const index = state.wishlistProducts.findIndex((obj) => obj.id === itemId);
+      if(index >= 0) {
+        state.wishlistProducts.splice(index, 1);
+      }
+      return {...state};
+    }
+
     case "SET_ORDER": {
       return {
         ...state,

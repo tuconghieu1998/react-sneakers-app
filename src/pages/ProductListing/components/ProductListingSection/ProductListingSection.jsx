@@ -65,7 +65,7 @@ export const ProductListingSection = () => {
 
           return (
             <Tilt
-              key={product._id}
+              key={product.id}
               tiltMaxAngleX={5}
               tiltMaxAngleY={5}
               glareEnable={false}

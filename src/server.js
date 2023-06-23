@@ -103,18 +103,18 @@ export function makeServer({ environment = "development" } = {}) {
       // cart routes (private)
       this.get("/cart", getCartItemsHandler.bind(this));
       this.post("/cart", addItemToCartHandler.bind(this));
-      this.post("/cart/clearCart", clearCartHandler.bind(this));
-      this.post("/cart/:productId", updateCartItemHandler.bind(this));
+      this.post("/cart/clear", clearCartHandler.bind(this));
+      this.post("/cart/:productId/update", updateCartItemHandler.bind(this));
       this.delete(
         "/cart/:productId",
         removeItemFromCartHandler.bind(this)
       );
 
       // wishlist routes (private)
-      this.get("/user/wishlist", getWishlistItemsHandler.bind(this));
-      this.post("/user/wishlist", addItemToWishlistHandler.bind(this));
+      this.get("/wishlist", getWishlistItemsHandler.bind(this));
+      this.post("/wishlist", addItemToWishlistHandler.bind(this));
       this.delete(
-        "/user/wishlist/:productId",
+        "/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
       );
 

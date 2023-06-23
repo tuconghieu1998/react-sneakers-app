@@ -1,11 +1,11 @@
-import axios from "axios";
+import { instanceAxios, getHeaderAuth } from "../services.js";
 
-export const addToWishlistService = async (product, encodedToken) => {
-  return await axios.post(
-    "/api/user/wishlist",
-    { product: { ...product } },
+export const addToWishlistService = async (productId, encodedToken) => {
+  return await instanceAxios.post(
+    "/api/wishlist",
+    { product_id: productId},
     {
-      headers: { authorization: encodedToken },
+      headers: getHeaderAuth(encodedToken),
     }
   );
 };
