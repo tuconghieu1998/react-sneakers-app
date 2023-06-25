@@ -1,9 +1,10 @@
 import axios from "axios";
+import dotenv from "dotenv";
 
-console.log("url", process.env.PORT)
+dotenv.config();
 
 export const instanceAxios = axios.create({
-  baseURL: "http://127.0.0.1:3000/",
+  baseURL: process.env.SERVER_URL,
 });
 
 export const getHeaderAuth = (token) => {

@@ -47,10 +47,10 @@ export const Wishlist = () => {
 
                 <p>Gender: {product.category_name}</p>
                 <div className="info">
-                  {!product.is_stock && (
+                  {!(product.is_stock == 1) && (
                     <p className="out-of-stock">Out of stock</p>
                   )}
-                  {product.trending && <p className="trending">Trending</p>}
+                  {(product.trending == 1) && <p className="trending">Trending</p>}
                 </div>
               </div>
 
