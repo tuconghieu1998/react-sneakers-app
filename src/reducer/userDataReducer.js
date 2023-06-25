@@ -23,7 +23,10 @@ export const userDataReducer = (state, action) => {
     }
 
     case "SET_ADDRESS": {
-      return { ...state, addressList: [...action.payload] };
+      if(action.payload != undefined) {
+        return { ...state, addressList: [...action.payload] };
+      }
+      return {...state};
     }
 
     case "SET_WISHLIST": {
